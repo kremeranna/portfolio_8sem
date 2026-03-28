@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Портфолио | Anna Kremer</title>
+    <!-- Подключаем шрифты -->
+    <link href="https://fonts.googleapis.com/css2?family=Afacad:wght@400;700&family=Sora:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/contacts.css">
+</head>
+<body>
+    <div class="site-wrapper">
+        <header class="header">
+            <button class="menu-button" aria-label="Меню"></button>
+        </header>
+    
+        <!-- Модальное окно (меню) -->
+    <div class="modal-overlay" id="menuModal">
+        <div class="modal-window">
+            <div class="modal-header">
+                <h2 class="modal-title">menu</h2>
+                <button class="modal-close" aria-label="Закрыть меню"></button>
+            </div>
+            <div class="modal-nav">
+                <a href="index.html" class="modal-nav__item">menu</a>
+                <a href="about_me.html" class="modal-nav__item">about me</a>
+                <a href="projects.html" class="modal-nav__item">projects</a>
+                <a href="contacts.html" class="modal-nav__item">contacts</a>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="title">
+        <div class="con_title">contacts  o( ❛ᴗ❛ )o</div>
+        <div class="con_buttons">
+            <a href="mailto:kremeranna625@gmail.com" class="footer__button">email</a>
+            <a href="https://web.telegram.org/" target="_blank" rel="noopener noreferrer" class="footer__button">telegram</a>
+            <a href="https://x.com/?lang=ru" target="_blank" rel="noopener noreferrer" class="footer__button">X</a>
+        </div>
+    </div>
+    
+    <div class="about-block">
+        <div class="about-block_1">
+            <div class="about-block_title">let's team up  \( ˙▿˙ )/\( ˙▿˙ )/</div>
+                <div class="name_email_block">
+                    <input type="text" class="name" name="name" placeholder="name">
+                    <input type="email" class="email" name="email" placeholder="email">
+                </div>
+                <div class="input_block">
+                    <textarea type="text" class="text" name="text" placeholder="what's on your mind?"></textarea>
+                </div>
+                <button class="send" type="send">send</button>
+        </div>
+        <div class="main_content_vid">
+            <video autoplay muted loop playsinline>
+                <source src="images/vid.webm" type="video/webm">
+                Ваш браузер не поддерживает видео.
+            </video>
+        </div>
+    </div>
+
+
+        <!-- Модальное окно успеха -->
+<div id="successModal" class="modal-success">
+    <div class="modal-success__window">
+        <div class="modal-success__header">
+            <h2 class="modal-success__title">success (°ε° )</h2>
+            <button class="modal-success__close" aria-label="Закрыть"></button>
+        </div>
+        <div class="modal-success__content">
+            thank you for reaching out! <br><br>
+            I’ve received your message and will review <br> it shortly.
+        </div>
+        <button class="modal-success__ok">yep!</button>
+    </div>
+</div>
+
+
+
+
+
+
+    </div>
+    <footer class="footer">
+        <div class="footer__container">
+            <div class="footer__text">You can find me here ٩(｡•́‿•̀｡)۶</div>
+            <div class="footer__buttons">
+                <a href="mailto:kremeranna625@gmail.com" class="footer__button">email</a>
+                <a href="https://web.telegram.org/" target="_blank" rel="noopener noreferrer" class="footer__button">telegram</a>
+                <a href="https://x.com/?lang=ru" target="_blank" rel="noopener noreferrer" class="footer__button">X</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/contacts.js"></script>
+</body>
+</html>
