@@ -1,0 +1,329 @@
+/* ---------- RESET ---------- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ---------- ОБЩИЙ ФОН ---------- */
+body {
+    font-family: 'Sora', sans-serif; /* базовый шрифт для всего текста, если не указан иначе */
+    background-color: #21615A;
+    /* Фон: цвет + изображение на весь экран, без повторений, покрывает всю область */
+    background-image: url('../images/background_poloski1.png');
+    background-repeat: no-repeat;
+    background-position: bottom;
+    background-attachment: fixed; /* чтобы фон не прокручивался вместе с контентом */
+    min-height: 100vh;
+}
+
+/* ---------- ОСНОВНАЯ СЕТКА ---------- */
+.site-wrapper {
+    max-width: 1920px;
+    margin: 0 auto;
+    padding-left: 108px;
+    padding-right: 108px; /* отступ для всего контента, кроме хедера */
+}
+
+/* ---------- ХЕДЕР ---------- */
+.header {
+    height: 64px;
+    background-color: #99A53A;
+    border-bottom: 4px solid #1E1E1E;
+    display: flex;
+    align-items: center;
+    padding-left: 108px;
+    padding-right: 108px;
+    margin-left: -108px;
+    margin-right: -108px;
+    width: calc(100% + 216px);
+}
+
+/* Кнопка-меню */
+.menu-button {
+    width: 64px;
+    height: 64px;
+    background: url('../images/button_menu.png') center / contain no-repeat;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.menu-button:hover {
+    background-image: url('../images/button_menu2.png');
+}
+
+.menu-button:active {
+    background-image: url('../images/button_menu3.png');
+}
+
+/* ---------- МОДАЛЬНОЕ ОКНО (МЕНЮ) ---------- */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(30, 30, 30, 0.4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.modal-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-window {
+    width: 552px;
+    height: 629px;
+    background-color: #FAFFEB;
+    border: 4px solid #1E1E1E;
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 32px 40px 0 40px;
+}
+
+.modal-title {
+    font-family: 'Afacad', sans-serif;
+    font-size: 64px;
+    color: #1E1E1E;
+    margin: 0;
+    line-height: 1;
+}
+
+.modal-close {
+    width: 40px;
+    height: 40px;
+    background: url('../images/close1.png') center / contain no-repeat;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    flex-shrink: 0;
+}
+
+.modal-close:hover {
+    background-image: url('../images/close2.png');
+}
+
+.modal-close:active {
+    background-image: url('../images/close3.png');
+}
+
+/* Меню навигации */
+.modal-nav {
+    margin: 32px 0 0 40px; /* отступ от заголовка 32px, слева 40px */
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    align-items: flex-start;
+}
+
+.modal-nav__item {
+    display: inline-block; /* кнопки не растягиваются на всю ширину */
+    padding: 24px 80px;
+    background-color: #B1C03D;
+    border: 4px solid #1E1E1E;
+    border-radius: 8px;
+    font-family: 'Sora', sans-serif;
+    font-size: 32px;
+    font-weight: bold;
+    color: #FFFFFF;
+    text-decoration: none;
+    text-align: center;
+    transition: background-color 0.2s ease;
+}
+
+.modal-nav__item:hover {
+    background-color: #348E85;
+}
+
+.modal-nav__item:active {
+    background-color: #21615A;
+}
+
+
+
+
+
+
+/* ---------- ФУТЕР ---------- */
+.footer {
+    background-color: #348E85;
+    border-top: 4px solid #1E1E1E;
+    margin-top: 64px; /* отступ от кнопок */
+}
+
+.footer__container {
+    max-width: 1920px;
+    margin: 0 auto;
+    padding: 0 0 0 108px; /* левый отступ по сетке */
+    height: 104px;
+    display: flex;
+    gap: 40px;
+    flex-direction: row;
+	align-items: flex-start;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.footer__text {
+    font-family: 'Sora', sans-serif;
+    font-size: 32px;
+    font-weight: bold;
+    color: #FFFFFF;
+}
+
+.footer__buttons {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.footer__button {
+    display: inline-block;
+    padding: 16px 40px;
+    background-color: #B1C03D;
+    border: 4px solid #1E1E1E;
+    border-radius: 8px;
+    font-family: 'Afacad', sans-serif;
+    font-size: 32px;
+    color: #FFFFFF;
+    text-decoration: none;
+    text-align: center;
+    transition: background-color 0.2s ease;
+    line-height: 1; /* для корректной высоты */
+}
+
+.footer__button:hover {
+    background-color: #348E85;
+}
+
+.footer__button:active {
+    background-color: #21615A;
+}
+
+
+/* ---------- ОСНОВНОЙ КОНТЕНТ ---------- */
+.main-content {
+    margin-top: 48px; /* отступ от хедера */
+}
+
+/* ---------- БЛОК "ОБО МНЕ" ---------- */
+.about-block {
+    background-color: #FAFFEB;
+    border: 4px solid #1E1E1E;
+    border-radius: 16px;
+    min-height: 760px; /* высота блока 760px */
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+.about-block__inner {
+    padding: 48px 40px 40px 40px; /* сверху 48px, по бокам 40px, снизу 40px */
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+.about-block__row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.about-block__title {
+    font-family: 'Afacad', sans-serif;
+    font-size: 64px;
+    font-weight: bold;
+    margin: 0;
+    line-height: 1.2;
+}
+
+.about-block__title--left {
+    color: #1E1E1E;
+}
+
+.about-block__title--right {
+    color: #99A53A;
+}
+
+
+.about-block_2 {
+    margin-top: 32px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 24px;
+}
+.ava {
+    width: 512px;
+    height: 539px;
+    background: url('../images/ava.png') center / contain no-repeat;
+}
+.about-block_text {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+.about-block_text1 {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+.about-block_text_title {
+    font-family: 'Afacad', sans-serif;
+    font-size: 32px;
+    font-weight: bold;
+}
+.about-block_text_text {
+    font-family: 'Sora', sans-serif;
+    font-size: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+.about-block_text2 {
+    display: flex;
+    flex-direction: row;
+    gap: 32px;
+    flex-wrap: wrap;
+}
+.about-block_text21 {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    width: 246px;
+    flex-wrap: wrap;
+}
+.about-block_text22 {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    width: 306px;
+    flex-wrap: wrap;
+}
+.about-block_text_text1 {
+    font-family: 'Sora', sans-serif;
+    font-size: 20px;
+}

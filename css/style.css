@@ -1,0 +1,306 @@
+/* ---------- RESET ---------- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ---------- ОБЩИЙ ФОН ---------- */
+body {
+    font-family: 'Sora', sans-serif; /* базовый шрифт для всего текста, если не указан иначе */
+    background-color: #FAFFEB;
+    /* Фон: цвет + изображение на весь экран, без повторений, покрывает всю область */
+    background-image: url('../images/background_setka1.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed; /* чтобы фон не прокручивался вместе с контентом */
+    min-height: 100vh;
+}
+
+/* ---------- ОСНОВНАЯ СЕТКА ---------- */
+.site-wrapper {
+    max-width: 1920px;
+    margin: 0 auto;
+    padding-left: 108px; /* отступ для всего контента, кроме хедера */
+}
+
+/* ---------- ХЕДЕР ---------- */
+.header {
+    height: 64px;
+    background-color: #99A53A;
+    border-bottom: 4px solid #1E1E1E;
+    display: flex;
+    align-items: center;
+    padding-left: 108px;
+    margin-left: -108px;
+    width: calc(100% + 108px);
+}
+
+/* Кнопка-меню */
+.menu-button {
+    width: 64px;
+    height: 64px;
+    background: url('../images/button_menu.png') center / contain no-repeat;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.menu-button:hover {
+    background-image: url('../images/button_menu2.png');
+}
+
+.menu-button:active {
+    background-image: url('../images/button_menu3.png');
+}
+
+/* ---------- ОСНОВНОЙ КОНТЕНТ ---------- */
+.main-content {
+    padding-top: 80px; /* отступ от хедера, можно регулировать */
+}
+
+/* Блок с заголовками */
+.hero {
+    max-width: 1200px; /* ограничиваем ширину для читаемости, но можно убрать */
+    margin-bottom: 60px;
+}
+
+.hero__title {
+    font-family: 'Afacad', sans-serif;
+    font-size: 96px;
+    font-weight: bold; /* если жирный нужен */
+    color: #1E1E1E;
+    line-height: 1.1;
+    margin-bottom: 24px;
+}
+
+.hero__subtitle {
+    font-family: 'Sora', sans-serif;
+    font-size: 32px;
+    font-weight: bold;
+    color: #1E1E1E;
+    line-height: 1.3;
+}
+
+/* ---------- МОДАЛЬНОЕ ОКНО (МЕНЮ) ---------- */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(30, 30, 30, 0.4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.modal-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-window {
+    width: 552px;
+    height: 629px;
+    background-color: #FAFFEB;
+    border: 4px solid #1E1E1E;
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 32px 40px 0 40px;
+}
+
+.modal-title {
+    font-family: 'Afacad', sans-serif;
+    font-size: 64px;
+    color: #1E1E1E;
+    margin: 0;
+    line-height: 1;
+}
+
+.modal-close {
+    width: 40px;
+    height: 40px;
+    background: url('../images/close1.png') center / contain no-repeat;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    flex-shrink: 0;
+}
+
+.modal-close:hover {
+    background-image: url('../images/close2.png');
+}
+
+.modal-close:active {
+    background-image: url('../images/close3.png');
+}
+
+/* Меню навигации */
+.modal-nav {
+    margin: 32px 0 0 40px; /* отступ от заголовка 32px, слева 40px */
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    align-items: flex-start;
+}
+
+.modal-nav__item {
+    display: inline-block; /* кнопки не растягиваются на всю ширину */
+    padding: 24px 80px;
+    background-color: #B1C03D;
+    border: 4px solid #1E1E1E;
+    border-radius: 8px;
+    font-family: 'Sora', sans-serif;
+    font-size: 32px;
+    font-weight: bold;
+    color: #FFFFFF;
+    text-decoration: none;
+    text-align: center;
+    transition: background-color 0.2s ease;
+}
+
+.modal-nav__item:hover {
+    background-color: #348E85;
+}
+
+.modal-nav__item:active {
+    background-color: #21615A;
+}
+
+/* Кнопки на главной странице */
+.hero-buttons {
+    margin-top: 72px;
+    display: flex;
+    gap: 40px;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.hero-button {
+    display: inline-block;
+    padding: 24px 80px;
+    background-color: #B1C03D;
+    border: 4px solid #1E1E1E;
+    border-radius: 8px;
+    font-family: 'Sora', sans-serif;
+    font-size: 32px;
+    font-weight: bold;
+    color: #FFFFFF;
+    text-decoration: none;
+    text-align: center;
+    transition: background-color 0.2s ease;
+}
+
+.hero-button:hover {
+    background-color: #348E85;
+}
+
+.hero-button:active {
+    background-color: #21615A;
+}
+
+/* ---------- ФУТЕР ---------- */
+.footer {
+    background-color: #348E85;
+    border-top: 4px solid #1E1E1E;
+    margin-top: 120px; /* отступ от кнопок */
+}
+
+.footer__container {
+    max-width: 1920px;
+    margin: 0 auto;
+    padding: 0 0 0 108px; /* левый отступ по сетке */
+    height: 104px;
+    display: flex;
+    gap: 40px;
+    flex-direction: row;
+	align-items: flex-start;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.footer__text {
+    font-family: 'Sora', sans-serif;
+    font-size: 32px;
+    font-weight: bold;
+    color: #FFFFFF;
+}
+
+.footer__buttons {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.footer__button {
+    display: inline-block;
+    padding: 16px 40px;
+    background-color: #B1C03D;
+    border: 4px solid #1E1E1E;
+    border-radius: 8px;
+    font-family: 'Afacad', sans-serif;
+    font-size: 32px;
+    color: #FFFFFF;
+    text-decoration: none;
+    text-align: center;
+    transition: background-color 0.2s ease;
+    line-height: 1; /* для корректной высоты */
+}
+
+.footer__button:hover {
+    background-color: #348E85;
+}
+
+.footer__button:active {
+    background-color: #21615A;
+}
+
+/* ---------- контент вместе с гифкой ---------- */
+
+.main_content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+/* Контейнер для видео */
+.main_content_vid {
+    margin-top: 40px;
+    width: 680px;
+    margin: 0% 14% 0 0;
+    transition: transform 0.2s ease; /* плавное масштабирование */
+    align-self: center;
+    justify-self: center;
+}
+
+.main_content_vid video {
+    width: 100%;
+    height: auto;
+    display: block;
+    pointer-events: none;      /* видео не перехватывает события мыши */
+    outline: none;
+}
+
+/* Увеличение при наведении */
+.main_content_vid:hover {
+    transform: scale(1.1);
+}
+
+/* Уменьшение при нажатии (класс добавляется JS) */
+.main_content_vid.pressed {
+    transform: scale(1.0);
+}

@@ -1,0 +1,573 @@
+/* ---------- RESET ---------- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+
+/* ---------- ОБЩИЙ ФОН ---------- */
+body {
+    font-family: 'Sora', sans-serif; /* базовый шрифт для всего текста, если не указан иначе */
+    background-color: #FAFFEB;
+    /* Фон: цвет + изображение на весь экран, без повторений, покрывает всю область */
+    background-image: url('../images/background_setka1.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed; /* чтобы фон не прокручивался вместе с контентом */
+    min-height: 100vh;
+}
+
+/* ---------- ОСНОВНАЯ СЕТКА ---------- */
+.site-wrapper {
+    max-width: 1920px;
+    margin: 0 auto;
+    padding-left: 108px; /* отступ для всего контента, кроме хедера */
+}
+
+/* ---------- ХЕДЕР ---------- */
+.header {
+    height: 64px;
+    background-color: #99A53A;
+    border-bottom: 4px solid #1E1E1E;
+    display: flex;
+    align-items: center;
+    padding-left: 108px;
+    margin-left: -108px;
+    width: calc(100% + 108px);
+}
+
+/* Кнопка-меню */
+.menu-button {
+    width: 64px;
+    height: 64px;
+    background: url('../images/button_menu.png') center / contain no-repeat;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.menu-button:hover {
+    background-image: url('../images/button_menu2.png');
+}
+
+.menu-button:active {
+    background-image: url('../images/button_menu3.png');
+}
+
+/* ---------- МОДАЛЬНОЕ ОКНО (МЕНЮ) ---------- */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(30, 30, 30, 0.4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.modal-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-window {
+    width: 552px;
+    height: 629px;
+    background-color: #FAFFEB;
+    border: 4px solid #1E1E1E;
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 32px 40px 0 40px;
+}
+
+.modal-title {
+    font-family: 'Afacad', sans-serif;
+    font-size: 64px;
+    color: #1E1E1E;
+    margin: 0;
+    line-height: 1;
+}
+
+.modal-close {
+    width: 40px;
+    height: 40px;
+    background: url('../images/close1.png') center / contain no-repeat;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    flex-shrink: 0;
+}
+
+.modal-close:hover {
+    background-image: url('../images/close2.png');
+}
+
+.modal-close:active {
+    background-image: url('../images/close3.png');
+}
+
+/* Меню навигации */
+.modal-nav {
+    margin: 32px 0 0 40px; /* отступ от заголовка 32px, слева 40px */
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    align-items: flex-start;
+}
+
+.modal-nav__item {
+    display: inline-block; /* кнопки не растягиваются на всю ширину */
+    padding: 24px 80px;
+    background-color: #B1C03D;
+    border: 4px solid #1E1E1E;
+    border-radius: 8px;
+    font-family: 'Sora', sans-serif;
+    font-size: 32px;
+    font-weight: bold;
+    color: #FFFFFF;
+    text-decoration: none;
+    text-align: center;
+    transition: background-color 0.2s ease;
+}
+
+.modal-nav__item:hover {
+    background-color: #348E85;
+}
+
+.modal-nav__item:active {
+    background-color: #21615A;
+}
+
+.title {
+    font-family: 'Afacad', sans-serif;
+    font-size: 64px;
+    font-weight: bold;
+    color: #1E1E1E;
+    margin-top: 48px;
+}
+.projects_katalog {
+    margin-top: 32px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 24px;
+}
+.proj1_img {
+    width: 552px;
+    height: 440px;
+    background: url('../images/proj1.png') center / contain no-repeat;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+.proj2_img {
+    width: 552px;
+    height: 440px;
+    background: url('../images/proj2.png') center / contain no-repeat;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+.proj3_img {
+    width: 552px;
+    height: 440px;
+    background: url('../images/proj3.png') center / contain no-repeat;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+.proj4_img {
+    width: 552px;
+    height: 440px;
+    background: url('../images/proj4.png') center / contain no-repeat;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+.proj5_img {
+    width: 552px;
+    height: 440px;
+    background: url('../images/proj5.png') center / contain no-repeat;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+.proj_text {
+    font-family: 'Sora', sans-serif;
+    font-size: 32px;
+    font-weight: bold;
+    color: #1E1E1E;
+    text-align: left;
+}
+.proj1,
+.proj2,
+.proj3,
+.proj4,
+.proj5 {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    background: none;
+    border: 4px #1E1E1E;
+    border-radius: 16px;
+}
+
+
+/* ---------- ФУТЕР ---------- */
+.footer {
+    background-color: #348E85;
+    border-top: 4px solid #1E1E1E;
+    margin-top: 64px; /* отступ от кнопок */
+}
+
+.footer__container {
+    max-width: 1920px;
+    margin: 0 auto;
+    padding: 0 0 0 108px; /* левый отступ по сетке */
+    height: 104px;
+    display: flex;
+    gap: 40px;
+    flex-direction: row;
+	align-items: flex-start;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.footer__text {
+    font-family: 'Sora', sans-serif;
+    font-size: 32px;
+    font-weight: bold;
+    color: #FFFFFF;
+}
+
+.footer__buttons {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.footer__button {
+    display: inline-block;
+    padding: 16px 40px;
+    background-color: #B1C03D;
+    border: 4px solid #1E1E1E;
+    border-radius: 8px;
+    font-family: 'Afacad', sans-serif;
+    font-size: 32px;
+    color: #FFFFFF;
+    text-decoration: none;
+    text-align: center;
+    transition: background-color 0.2s ease;
+    line-height: 1; /* для корректной высоты */
+}
+
+.footer__button:hover {
+    background-color: #348E85;
+}
+
+.footer__button:active {
+    background-color: #21615A;
+}
+
+
+
+/* ---------- ПРОЕКТЫ ---------- */
+.title {
+    font-family: 'Afacad', sans-serif;
+    font-size: 64px;
+    font-weight: bold;
+    color: #1E1E1E;
+    margin-top: 48px;
+}
+
+.projects_katalog {
+    margin-top: 32px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 24px;
+}
+
+/* Кнопки проектов – общие стили */
+.proj1,
+.proj2,
+.proj3,
+.proj4,
+.proj5 {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    padding: 0;
+    width: 552px;
+    text-align: left;
+}
+
+/* Картинки проектов – рамка и фон */
+.proj1_img,
+.proj2_img,
+.proj3_img,
+.proj4_img,
+.proj5_img {
+    width: 552px;
+    height: 440px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border: 4px solid #1E1E1E;
+    border-radius: 16px;
+    transition: background-size 0.2s ease;
+}
+
+/* Фоновые изображения */
+.proj1_img {
+    background-image: url('../images/proj1.png');
+}
+.proj2_img {
+    background-image: url('../images/proj2.png');
+}
+.proj3_img {
+    background-image: url('../images/proj3.png');
+}
+.proj4_img {
+    background-image: url('../images/proj4.png');
+}
+.proj5_img {
+    background-image: url('../images/proj5.png');
+}
+
+/* Увеличение фона при наведении */
+.proj1:hover .proj1_img,
+.proj2:hover .proj2_img,
+.proj3:hover .proj3_img,
+.proj4:hover .proj4_img,
+.proj5:hover .proj5_img {
+    background-size: 110%;
+}
+
+/* Ещё больше при нажатии */
+.proj1:active .proj1_img,
+.proj2:active .proj2_img,
+.proj3:active .proj3_img,
+.proj4:active .proj4_img,
+.proj5:active .proj5_img {
+    background-size: 115%;
+}
+
+/* Текст под картинкой */
+.proj_text {
+    font-family: 'Sora', sans-serif;
+    font-size: 32px;
+    font-weight: bold;
+    color: #1E1E1E;
+    text-align: left;
+    transition: color 0.2s ease;
+}
+
+/* Изменение цвета текста при наведении */
+.proj1:hover .proj_text,
+.proj2:hover .proj_text,
+.proj3:hover .proj_text,
+.proj4:hover .proj_text,
+.proj5:hover .proj_text {
+    color: #99A53A;
+}
+
+/* Изменение цвета текста при нажатии */
+.proj1:active .proj_text,
+.proj2:active .proj_text,
+.proj3:active .proj_text,
+.proj4:active .proj_text,
+.proj5:active .proj_text {
+    color: #21615A;
+}
+
+/* ---------- БЛОК "WRITE ME" ---------- */
+.write_me {
+    float: right;
+    margin-right: 108px;
+    margin-top: -120px;
+    display: flex;
+    flex-direction: row;
+    gap: 32px;
+    align-items: center;
+}
+
+.write_me_text {
+    font-family: 'Afacad', sans-serif;
+    font-size: 64px;
+    font-weight: bold;
+    color: #1E1E1E;
+}
+
+.write_me_icon {
+    width: 120px;
+    height: 120px;
+    background: url('../images/write_me.png') center / contain no-repeat;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.write_me_icon:hover {
+    background-image: url('../images/write_me2.png');
+}
+
+.write_me_icon:active {
+    background-image: url('../images/write_me3.png');
+}
+
+/* Картинки проектов – теперь это контейнер с рамкой и overflow */
+.proj1_img,
+.proj2_img,
+.proj3_img,
+.proj4_img,
+.proj5_img {
+    width: 552px;
+    height: 440px;
+    border: 4px solid #1E1E1E;
+    border-radius: 16px;
+    position: relative;
+    overflow: hidden;           /* скрываем увеличенный псевдоэлемент */
+    background-color: transparent; /* чтобы не было фона */
+}
+
+/* Псевдоэлемент с фоновым изображением */
+.proj1_img::before,
+.proj2_img::before,
+.proj3_img::before,
+.proj4_img::before,
+.proj5_img::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: transform 0.2s ease;
+}
+
+/* Фоновые изображения для каждого псевдоэлемента */
+.proj1_img::before {
+    background-image: url('../images/proj1.png');
+}
+.proj2_img::before {
+    background-image: url('../images/proj2.png');
+}
+.proj3_img::before {
+    background-image: url('../images/proj3.png');
+}
+.proj4_img::before {
+    background-image: url('../images/proj4.png');
+}
+.proj5_img::before {
+    background-image: url('../images/proj5.png');
+}
+
+/* Увеличение псевдоэлемента при наведении на кнопку */
+.proj1:hover .proj1_img::before,
+.proj2:hover .proj2_img::before,
+.proj3:hover .proj3_img::before,
+.proj4:hover .proj4_img::before,
+.proj5:hover .proj5_img::before {
+    transform: scale(1.05);
+}
+
+/* Ещё сильнее при нажатии */
+.proj1:active .proj1_img::before,
+.proj2:active .proj2_img::before,
+.proj3:active .proj3_img::before,
+.proj4:active .proj4_img::before,
+.proj5:active .proj5_img::before {
+    transform: scale(1.1);
+}
+
+/* ---------- кнопка напиши мне ---------- */
+
+.write_me {
+    display: inline-flex;
+    align-items: center;
+    margin-right: 48px;
+    margin-top: -64px;
+    float: right;
+    cursor: pointer;
+    overflow: visible;        /* чтобы текст мог выходить за пределы */
+    gap: 0;                   /* убираем стандартный отступ между flex-элементами */
+}
+
+.write_me_icon {
+    width: 120px;
+    height: 120px;
+    background: url('../images/write_me.png') center / contain no-repeat;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    flex-shrink: 0;           /* иконка не сжимается */
+    z-index: 2;
+    position: relative;
+}
+
+.write_me_icon:hover {
+    background-image: url('../images/write_me2.png');
+}
+
+.write_me_icon:active {
+    background-image: url('../images/write_me3.png');
+}
+
+.write_me_text {
+    font-family: 'Afacad', sans-serif;
+    font-size: 64px;
+    font-weight: bold;
+    color: #1E1E1E;
+    white-space: nowrap;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    transform: translateX(calc(0%)); /* изначально скрыт за иконкой */
+    opacity: 0;
+    visibility: hidden;
+    margin-right: 0;          /* убираем лишние отступы */
+}
+
+.write_me:hover .write_me_text {
+    transform: translateX(calc(-0% - 32px)); /* выезжает слева от иконки с отступом 32px */
+    opacity: 1;
+    visibility: visible;
+}
+.write_me:active .write_me_text {
+    color: #99A53A;
+}
+
+.write_me_text {
+    /* существующие стили */
+    transition: transform 0.2s ease, opacity 0.2s ease, visibility 0s linear 0.2s;
+}
+
+.write_me:hover .write_me_text {
+    transition: transform 0.2s ease, opacity 0.2s ease, visibility 0s linear 0s;
+    /* остальные стили */
+}
